@@ -3,8 +3,8 @@
   "version": "4.0.1",
   "description": "A gulp plugin for extracting data header from file contents using gray-matter.",
   "author": "Simon Lepel <simbo@simbo.de> (http://simbo.ninja)",
-  "colaborators": [
-
+  "contributors": [
+    "AzazelN28 <asakon28@gmail.com> (http://rojo2.com)"
   ],
   "main": "index.js",
   "keywords": [

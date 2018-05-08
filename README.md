@@ -59,12 +59,14 @@ npm i gulp-gray-matter
 In your `gulpfile.js`:
 
 ```js
-var gulp = require('gulp'),
-    gulpGrayMatter = require('gulp-gray-matter');
+import gulp from 'gulp'
+import loadPlugins from 'gulp-load-plugins'
+
+const plugins = loadPlugins()
 
 gulp.task('default', function() {
   return gulp.src('./src/**.*')
-    .pipe(gulpGrayMatter({ /* options */ }))
+    .pipe(plugins.grayMatter({ /* options */ }))
     // …
     .pipe(gulp.dest('./dest'));
 });
@@ -78,7 +80,9 @@ rendering plugin like [gulp-jade](https://www.npmjs.com/package/gulp-jade).
 
 Beside its own options, *gulp-gray-matter* also supports all
 [gray-matter options](https://www.npmjs.com/package/gray-matter#options):
-`delims`, `eval`, `lang` and `parser`
+`delimiters`, `excerpt`, `excerpt_separator` and `language`. 
+
+`engines` is currently not supported.
 
 
 ### property

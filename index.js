@@ -77,10 +77,10 @@ function gulpGrayMatter(options) {
       trim: typeof opts.trim === 'boolean' ? opts.trim : true,
       setData: typeof opts.setData === 'function' ? opts.setData : setData,
       grayMatter: {
-        delims: opts.delims || '---',
-        eval: typeof opts.eval === 'boolean' ? opts.eval : true,
-        lang: opts.lang || 'yaml',
-        parser: opts.parser || undefined
+        delimiters: opts.delimiters || '---',
+        language: opts.language || 'yaml',
+        excerpt: opts.excerpt || undefined,
+        excerpt_separator: opts.excerptSeparator || opts.excerpt_separator || undefined,
       }
     };
   }

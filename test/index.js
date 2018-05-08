@@ -111,26 +111,15 @@ describe('gulp-gray-matter', function() {
   it('should allow custom gray-matter options', function(done) {
     fixtures('bar.md')
       .pipe(ggm({
-        delims: '~~~',
-        eval: true,
-        lang: 'json'
+        delimiters: '~~~',
+        excerpt: true,
+        language: 'json'
       }))
       .pipe(streamAssert.first(function(chunk) {
-        assert.deepEqual(chunk.data, {title: 'bar', foo: 'baz'});
-        assert.equal(String(chunk.contents), 'some content');
+        assert.deepEqual(chunk.data, {title: 'bar', foo: 'baz', excerpt: 'Excerpt'});
+        assert.equal(String(chunk.contents), 'Excerpt\n~~~\n\nsome content');
       }))
       .pipe(streamAssert.end(done));
-  });
-
-  it('should catch errors', function(done) {
-    fixtures('foo.md')
-      .pipe(ggm({
-        parser: true
-      }))
-      .on('error', function(err) {
-        assert.equal((/^gray-matter\ cannot\ find\ a\ parser\ for:/).test(err.message), true);
-        done();
-      });
   });
 
 });

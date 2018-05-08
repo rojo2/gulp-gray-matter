@@ -45,6 +45,9 @@ function gulpGrayMatter(options) {
   function extractMatter(chunk) {
     var matter = grayMatter(String(chunk.contents), options.grayMatter),
         data = objectPath.get(chunk, options.property);
+    if (matter.excerpt) {
+      Object.assign(matter.data, { excerpt: options.trim ? String(matter.excerpt).trim() : matter.excerpt })
+    }
     data = options.setData(typeof data === 'object' ? data : {}, matter.data);
     objectPath.set(chunk, options.property, data);
     if (options.remove) {
